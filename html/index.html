@@ -42,7 +42,11 @@
         size=String.fromCharCode(bust_index);
     }
     document.getElementById("size").textContent=size+" cup";
-    window.location.href="https://jaydolphxx.github.io/project/html/"+size+"cup"+String(Math.floor(Math.random()*5))+".html";
+    if (size==="Error…E"){
+        window.location.href="https://jaydolphxx.github.io/project/html/Ecup"+String(Math.floor(Math.random()*5))+".html";
+    }else{
+        window.location.href="https://jaydolphxx.github.io/project/html/"+size+"cup"+String(Math.floor(Math.random()*5))+".html";
+    }
 }
 </script>
 </html>
