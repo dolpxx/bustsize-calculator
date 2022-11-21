@@ -52,3 +52,12 @@ img {
     margin: 0px;
     }
 }
+.tweet{
+    opacity: 0.75;
+    text-align: center;
+    color: #1da1f2;
+    position: static;
+    font-size: 8em;
+    font-family: 'Copperplate',sans-serif;
+    margin: 0px;
+}
