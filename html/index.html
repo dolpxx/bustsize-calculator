@@ -33,9 +33,27 @@
     <div class="calculate">
         <h2><input type="button" value="Calculate!" onclick="calc_bust()"></h2>
     </div>
+    <form method="post" action="">
+        <label for="input_name">名前：</label>
+        <input type="text" id="input_name" name="input_name" value="">
+    </form>
 </div>
 </body>
 <script>
+
+    window.addEventListener('DOMContentLoaded', function(){
+    var input_name = document.getElementById("input_name");
+    input_name.addEventListener("change",function(){
+        console.log("Change action");
+        console.log(this.value);
+    });
+
+    // イベントリスナーでイベント「input」を登録
+    input_name.addEventListener("input",function(){
+        console.log("Input action");
+        console.log(this.value);
+    });
+    });
     function calc_bust(){
     let top,under,bust_index,size;
     top=document.getElementById("top").value;
