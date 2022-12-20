@@ -29,19 +29,41 @@
     <div class="under">
         <input type="text" placeholder="under" size="20" id="under" style="width: 200px;height: 60px;">
     </div>
-    <h2 id="size">??? cup</h2>
+    <h2><span id="size">???</span> cup</h2>
     <div class="calculate">
-        <h2><input type="button" value="Calculate!" onclick="calc_bust()"></h2>
+        <h2><input type="button" value="Calculate!" onclick="calculate()"></h2>
     </div>
 </div>
 </body>
 <script>
-    function calc_bust(){
-    let top,under,bust_index,size;
-    top=document.getElementById("top").value;
-    under=document.getElementById("under").value;
-    bust_index=(((top-under)/2.5)|0)+61;
-    if(top=="" || under==""){
+    window.addEventListener('DOMContentLoaded', function(){
+    
+    // input要素を取得
+    var input_name = document.getElementById("input_name");
+
+    const bustTopInput = document.getElementById("top");
+    const bustUnderInput = document.getElementById("under");
+    const bustSize = document.getElementById("size");
+
+    let top, under;
+
+    bustTopInput.addEventListener("input", () => {
+    top = bustTopInput.value;
+    const size = calc_bust(top, under);
+    bustSize.textContent = size;
+    });
+
+    bustUnderInput.addEventListener("input", () => {
+    under = bustUnderInput.value;
+    const size = calc_bust(top, under);
+    bustSize.textContent = size;
+    });
+});
+
+    const calc_bust = (top, under) => {
+        const bust_index = (((top-under)/2.5)|0)+61;
+        let size;
+        if(top=="" || under==""){
         size="Error…E";
     }else if(bust_index>90){
         size="Z";
@@ -52,7 +74,13 @@
     }else{
         size=String.fromCharCode(bust_index);
     }
-    document.getElementById("size").textContent=size+" cup";
+
+    return size;
+    }
+
+    function calculate(){
+    const bustSize = document.getElementById("size");
+    const size = bustSize.textContent;
     if (size==="Error…E"){
         window.location.href="https://jaydolphxx.github.io/project/html/Ecup"+String(Math.floor(Math.random()*5))+".html";
     }else{
