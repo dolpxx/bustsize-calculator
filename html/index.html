@@ -30,36 +30,29 @@
         <input type="text" placeholder="under" size="20" id="under" style="width: 200px;height: 60px;">
     </div>
     <h2><span id="size">???</span> cup</h2>
-    <div class="calculate">
-        <h2><input type="button" value="Calculate!" onclick="calculate()"></h2>
+    <div class="oppai">
+        <h2><input type="button" value="Calculate!" onclick="oppai()"></h2>
     </div>
 </div>
 </body>
 <script>
     window.addEventListener('DOMContentLoaded', function(){
-    
-    // input要素を取得
     var input_name = document.getElementById("input_name");
-
     const bustTopInput = document.getElementById("top");
     const bustUnderInput = document.getElementById("under");
     const bustSize = document.getElementById("size");
-
     let top, under;
-
     bustTopInput.addEventListener("input", () => {
     top = bustTopInput.value;
     const size = calc_bust(top, under);
     bustSize.textContent = size;
     });
-
     bustUnderInput.addEventListener("input", () => {
     under = bustUnderInput.value;
     const size = calc_bust(top, under);
     bustSize.textContent = size;
     });
 });
-
     const calc_bust = (top, under) => {
         const bust_index = (((top-under)/2.5)|0)+61;
         let size;
@@ -74,11 +67,9 @@
     }else{
         size=String.fromCharCode(bust_index);
     }
-
     return size;
     }
-
-    function calculate(){
+    function oppai(){
     const bustSize = document.getElementById("size");
     const size = bustSize.textContent;
     if (size==="Error…E"){
