@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <link rel="stylesheet" href="../css/style.css">
     <meta charset="UTF-8">
@@ -8,7 +9,8 @@
     <meta property="og:title" content="Bustsize Calculator">
     <meta property="og:description" content="おっぱい　測る　方法">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://twitter.com/intent/tweet?text=Bustsize%20Calculator%20%E3%81%A7%20AAA%20%E3%82%AB%E3%83%83%E3%83%97%E3%82%92%E7%99%BA%E8%A6%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81%0A%E8%A8%88%E6%B8%AC%E3%81%AF%E3%81%93%E3%81%A1%E3%82%89%E2%86%93%0Ahttps%3A%2F%2Fjaydolphxx.github.io%2Fproject%2Fhtml%2Findex.html">
+    <meta property="og:url"
+        content="https://twitter.com/intent/tweet?text=Bustsize%20Calculator%20%E3%81%A7%20AAA%20%E3%82%AB%E3%83%83%E3%83%97%E3%82%92%E7%99%BA%E8%A6%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81%0A%E8%A8%88%E6%B8%AC%E3%81%AF%E3%81%93%E3%81%A1%E3%82%89%E2%86%93%0Ahttps%3A%2F%2Fjaydolphxx.github.io%2Fproject%2Fhtml%2Findex.html">
     <meta property="og:image" content="https://jaydolphxx.github.io/project/ogp/ogppai.jpeg">
     <meta property="og:site_name" content="Bustsize Calculator">
     <meta property="og:locale" content="ja_JP">
@@ -16,70 +18,73 @@
     <meta name="twitter:site" content="@jaydolphxx">
     <title>Bustsize Calculator</title>
 </head>
+
 <body>
-<div class="container">
-    <div class="title">
-        <h1>Bustsize-calculator</h1>
+    <div class="container">
+        <div class="title">
+            <h1>Bustsize-calculator</h1>
+        </div>
+        <h2>top-bust:</h2>
+        <div class="top">
+            <input type="text" placeholder="top" size="20" id="top" style="width: 200px;height: 60px;">
+        </div>
+        <h2>under-bust:</h2>
+        <div class="under">
+            <input type="text" placeholder="under" size="20" id="under" style="width: 200px;height: 60px;">
+        </div>
+        <h2><span id="size">???</span> cup</h2>
+        <div class="oppai">
+            <div class="calculate">
+                <h2><input type="button" value="Calculate!" onclick="oppai()"></h2>
+            </div>
+        </div>
     </div>
-    <h2>top-bust:</h2>
-    <div class="top">
-        <input type="text" placeholder="top" size="20" id="top" style="width: 200px;height: 60px;">
-    </div>
-    <h2>under-bust:</h2>
-    <div class="under">
-        <input type="text" placeholder="under" size="20" id="under" style="width: 200px;height: 60px;">
-    </div>
-    <h2><span id="size">???</span> cup</h2>
-    <div class="oppai">
-    <div class="calculate">
-        <h2><input type="button" value="Calculate!" onclick="oppai()"></h2>
-    </div>
-    </div>
-</div>
 </body>
 <script>
-    window.addEventListener('DOMContentLoaded', function(){
-    var input_name = document.getElementById("input_name");
-    const bustTopInput = document.getElementById("top");
-    const bustUnderInput = document.getElementById("under");
-    const bustSize = document.getElementById("size");
-    let top, under;
-    bustTopInput.addEventListener("input", () => {
-    top = bustTopInput.value;
-    const size = calc_bust(top, under);
-    bustSize.textContent = size;
+    window.addEventListener('DOMContentLoaded', function () {
+        var input_name = document.getElementById("input_name");
+        const bustTopInput = document.getElementById("top");
+        const bustUnderInput = document.getElementById("under");
+        const bustSize = document.getElementById("size");
+        let top, under;
+        bustTopInput.addEventListener("input", () => {
+            top = bustTopInput.value;
+            const size = calc_bust(top, under);
+            bustSize.textContent = size;
+        });
+        bustUnderInput.addEventListener("input", () => {
+            under = bustUnderInput.value;
+            const size = calc_bust(top, under);
+            bustSize.textContent = size;
+        });
     });
-    bustUnderInput.addEventListener("input", () => {
-    under = bustUnderInput.value;
-    const size = calc_bust(top, under);
-    bustSize.textContent = size;
-    });
-});
     const calc_bust = (top, under) => {
-        const bust_index = (((top-under)/2.5)|0)+61;
+        const bust_index = (((top - under) / 2.5) | 0) + 61;
         let size;
-        if(top=="" || under==""){
-        size="Error…E";
-    }else if(bust_index>90){
-        size="Z";
-    }else if(bust_index<64){
-        size="AAA";
-    }else if(bust_index===64){
-        size="AA";
-    }else{
-        size=String.fromCharCode(bust_index);
+        if (top == "" || under == "") {
+            size = "Error…E";
+        } else if (bust_index > 90) {
+            size = "Z";
+        } else if (bust_index < 64) {
+            size = "AAA";
+        } else if (bust_index === 64) {
+            size = "AA";
+        } else {
+            size = String.fromCharCode(bust_index);
+        }
+        return size;
     }
-    return size;
-    }
-    function oppai(){
-    const bustSize = document.getElementById("size");
-    const size = bustSize.textContent;
-    console.log(bust_index);
-    if (size==="Error…E"){
-        window.location.href="https://jaydolphxx.github.io/project/html/Ecup"+String(Math.floor(Math.random()*5))+".html";
-    }else{
-        window.location.href="https://jaydolphxx.github.io/project/html/"+size+"cup"+String(Math.floor(Math.random()*5))+".html";
+    function oppai() {
+        const bustSize = document.getElementById("size");
+        const size = bustSize.textContent;
+        if (size === "Error…E") {
+            window.location.href = "https://jaydolphxx.github.io/project/html/Ecup" + String(Math.floor(Math.random() * 5)) + ".html";
+        } else if (size < "L") {
+            window.location.href = "https://jaydolphxx.github.io/project/html/" + size + "cup" + String(Math.floor(Math.random() * 5)) + ".html";
+        } else {
+            window.location.href = "https://jaydolphxx.github.io/project/html/" + size + "cup" + String(Math.floor(Math.random() * 3)) + ".html";
     }
 }
 </script>
+
 </html>
