@@ -2,7 +2,7 @@
     opacity: 0.75;
     text-align: center;
     color: #eaecfc;
-    position: fixed;
+    position: static;
     font-size: 2em;
     font-family: 'Copperplate',sans-serif;
     margin: 0px;
@@ -20,6 +20,7 @@ body{
     font-family: 'Copperplate',sans-serif;
     background-color: #393939;
     text-align: center;
+    position: static;
 }
 .top input{
     font-family: 'Copperplate',sans-serif;  
