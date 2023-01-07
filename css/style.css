@@ -2,11 +2,12 @@
     opacity: 0.75;
     text-align: center;
     color: #eaecfc;
-    position: static;
+    position: fixed;
     font-size: 2em;
     font-family: 'Copperplate',sans-serif;
     margin: 0px;
 }
+
 .title{
     text-align: center;
 }
