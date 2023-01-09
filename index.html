@@ -79,6 +79,9 @@
         const size = bustSize.textContent;
         if (size === "Error…E") {
             window.location.href = "https://jaydolphxx.github.io/bustsize-calculator/html/Ecup" + String(Math.floor(Math.random() * 5)) + ".html";
+        }
+        if (size === "???") {
+            window.location.href = "https://jaydolphxx.github.io/bustsize-calculator/";
         } else if (size < "L") {
             window.location.href = "https://jaydolphxx.github.io/bustsize-calculator/html/" + size + "cup" + String(Math.floor(Math.random() * 5)) + ".html";
         } else if (size < "R") {
