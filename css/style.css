@@ -8,6 +8,11 @@
     margin: 0px;
 }
 
+@font-face {
+    font-family: 'CopperPlate';
+    src: url('copperplate/OPTICopperplate.otf') format('opentype');
+    }
+
 .title {
     text-align: center;
 }
