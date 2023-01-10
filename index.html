@@ -42,7 +42,7 @@
 </body>
 <script>
     window.addEventListener('DOMContentLoaded', function () {
-        var input_name = document.getElementById("input_name");
+        const input_name = document.getElementById("input_name");
         const bustTopInput = document.getElementById("top");
         const bustUnderInput = document.getElementById("under");
         const bustSize = document.getElementById("size");
@@ -89,8 +89,10 @@
             window.location.href = "https://jaydolphxx.github.io/bustsize-calculator/html/" + size + "cup" + String(Math.floor(Math.random() * 5)) + ".html";
         } else if (size < "R") {
             window.location.href = "https://jaydolphxx.github.io/bustsize-calculator/html/" + size + "cup" + String(Math.floor(Math.random() * 3)) + ".html";
+        } else if (size < "W") {
+            window.location.href = "https://jaydolphxx.github.io/bustsize-calculator/html/" + size + "cup" + String(Math.floor(Math.random() * 3)) + ".html";
         } else {
-            window.location.href = "https://jaydolphxx.github.io/bustsize-calculator/html/" + size + "cup" + String(Math.floor(Math.random() * 2)) + ".html";
+            window.location.href = "https://jaydolphxx.github.io/bustsize-calculator/html/" + size + "cup0.html";
         }
     }
 </script>
