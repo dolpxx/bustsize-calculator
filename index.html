@@ -70,16 +70,16 @@
         if (size === "W") {
             window.location.href = "https://www.jfa.jp/samuraiblue/squad2022/";
         }
-        if (size === "Error…E") {
+        else if (size === "Error…E") {
             window.location.href = "https://dolpxx.github.io/bustsize-calculator/html/Ecup" + String(Math.floor(Math.random() * 5)) + ".html";
         }
-        if (size === "???") {
+        else if (size === "???") {
             window.location.href = "https://dolpxx.github.io/bustsize-calculator/";
         } else if (size < "L") {
             window.location.href = "https://dolpxx.github.io/bustsize-calculator/html/" + size + "cup" + String(Math.floor(Math.random() * 5)) + ".html";
         } else if (size < "R") {
             window.location.href = "https://dolpxx.github.io/bustsize-calculator/html/" + size + "cup" + String(Math.floor(Math.random() * 3)) + ".html";
-        } else if (size < "V") {
+        } else if (size < "W") {
             window.location.href = "https://dolpxx.github.io/bustsize-calculator/html/" + size + "cup" + String(Math.floor(Math.random() * 2)) + ".html";
         } else {
             window.location.href = "https://dolpxx.github.io/bustsize-calculator/html/" + size + "cup0.html";
